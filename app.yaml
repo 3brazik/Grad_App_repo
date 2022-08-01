@@ -4,7 +4,7 @@ metadata:
   name: node-deploy
   namespace: application
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nodejs
@@ -13,10 +13,6 @@ spec:
       labels:
         app: nodejs
     spec:
-      securityContext:
-            fsGroup: 1000 
-            runAsUser: 1000
-      serviceAccountName: jenkins-admin
       containers:
         - name: node-container
           image: 3brazik/app_img
